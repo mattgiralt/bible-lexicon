@@ -1,0 +1,6 @@
+# Sources et licences
+
+- **STEPBible Data** par Tyndale House, Cambridge et STEPBible.org sous CC BY 4.0. Textes TAGNT (sélection NA28 dans STEP), TAHOT, lexiques TBESG et TBESH, explications morphologiques TEGMC et TEHMC. L’extension indexe les données, relie les versifications et traduit les libellés morphologiques. [Données STEPBible](https://github.com/STEPBible/STEPBible-Data) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **United Bible Societies** sous CC BY-SA 4.0. Dictionnaire grec du Nouveau Testament v1.01 et dictionnaire hébreu v0.9.4, traductions françaises, index MARBLE WLC. L’extension extrait et indexe ces données en conservant les avertissements éditoriaux. Les extraits et index dérivés UBS restent sous CC BY-SA 4.0. [Données UBS](https://github.com/ubsicap/ubs-open-license) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- **Louis Segond 1910** pour le texte français historique. Texte du domaine public issu du module CrossWire Sword FreSegond. Numéros Strong affectés en 2026 par “Concordances et Traductions de la Bible” (concordance.bible). Le CSV utilisé est identique au téléchargement officiel du 28 septembre 2026. [Source et conditions d’utilisation](https://concordance.bible/Sg1910/download/)
+- **Segond 21** pour les citations fournies dans Ulysses. Le paquet ne contient aucun corpus S21.
