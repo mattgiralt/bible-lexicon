@@ -21,7 +21,7 @@ Utilisez la dernière archive source pour mettre à jour le dossier que vous ave
 
 ## Analyser une citation depuis une autre application
 
-Dans l’application qui affiche la citation, sélectionnez un mot entier et lancez **Lexique biblique** via Raycast. Placez la référence en tête de la citation, par exemple `Jn 1.14 (S21) :`. Pour plusieurs versets, indiquez les numéros dans la citation.
+Dans l’application qui affiche la citation, sélectionnez un mot entier et lancez **Lexique biblique** via Raycast. Placez la référence en tête de la citation, par exemple `Jn 1.14 (S21) :`, ou juste après les guillemets, comme dans `« … que je le ressuscite au dernier jour. » (Jn 6.39)`. Pour plusieurs versets, indiquez les numéros dans la citation.
 
 Le champ actif doit exposer le texte et les coordonnées de la sélection via l’accessibilité macOS. La compatibilité dépend du champ et de l’application. Lorsque le contexte manque, **Recherche lexicale** permet de rechercher directement un mot ou un Strong.
 

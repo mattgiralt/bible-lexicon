@@ -1,4 +1,26 @@
+import { bibleBooks, bookCode } from "./references";
+
 export function readCitation({ text, selected, pos }: { text: string; selected: string; pos: number }) {
+  const selectionEnd = pos + selected.length;
+  let citation: { ref: string[]; passage: string; start: number } | undefined;
+
+  // A trailing reference belongs only to the quotation it immediately follows.
+  const quoteRegex =
+    /«([^«»]+)»[ \t\u00a0\u202f]*[.!?]?[ \t\u00a0\u202f]*\(([1-3]?[ \t]*[\p{L}]+(?:[ \t]+[\p{L}]+){0,3})[ \t]+(\d+)[.:,](\d+)(?:[–—-](\d+))?(?:[ \t]*,[ \t]*([^)\n]+))?[ \t]*\)/gu;
+  for (const match of text.matchAll(quoteRegex)) {
+    const start = match.index + 1;
+    const passage = match[1];
+    if (
+      start <= pos &&
+      selectionEnd <= start + passage.length &&
+      !/\n[ \t]*\n/.test(passage) &&
+      bibleBooks.includes(bookCode(match[2]))
+    ) {
+      citation = { ref: match.slice(1), passage, start };
+      break;
+    }
+  }
+
   const refRegex =
     /(?:^|\n)[ \t]*>?[ \t]*([1-3]?[ \t]*[\p{L}]+(?:[ \t]+[\p{L}]+){0,3})[ \t]+(\d+)[.:,](\d+)(?:[–—-](\d+))?[ \t]*(?:\(([^)\n]+)\))?[ \t]*:/gu;
 
@@ -6,23 +28,21 @@ export function readCitation({ text, selected, pos }: { text: string; selected: 
   const matches = Array.from(before.matchAll(refRegex));
   const ref = matches[matches.length - 1];
 
-  if (!ref || ref.index === undefined) {
-    throw new Error("Aucune référence biblique reconnue.");
+  if (!citation) {
+    if (!ref) throw new Error("Aucune référence biblique reconnue.");
+    const start = ref.index + ref[0].length;
+    const remaining = text.slice(start);
+    const paragraphEnd = remaining.search(/\n[ \t]*\n/);
+    citation = { ref, start, passage: paragraphEnd === -1 ? remaining : remaining.slice(0, paragraphEnd) };
   }
 
-  const book = ref[1].trim();
-  const chapter = Number(ref[2]);
-  const firstVerse = Number(ref[3]);
-  const lastVerse = Number(ref[4] || ref[3]);
-  const version = ref[5] || "Non précisée";
+  const { ref: reference, start, passage } = citation;
 
-  const start = ref.index + ref[0].length;
-
-  const remaining = text.slice(start);
-
-  const paragraphEnd = remaining.search(/\n[ \t]*\n/);
-
-  const passage = paragraphEnd === -1 ? remaining : remaining.slice(0, paragraphEnd);
+  const book = reference[1].trim();
+  const chapter = Number(reference[2]);
+  const firstVerse = Number(reference[3]);
+  const lastVerse = Number(reference[4] || reference[3]);
+  const version = reference[5] || "Non précisée";
 
   const relative = pos - start;
 

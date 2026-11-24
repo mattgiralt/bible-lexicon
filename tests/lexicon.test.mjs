@@ -97,3 +97,14 @@ test("un nom grec garde son analyse STEP et les répétitions restent indétermi
   assert.ok(forms.length > 0);
   assert.ok(forms.every((row) => row.ubsSenses.every((sense) => !sense.contextual)));
 });
+
+test("Jean 6.39 en fin de citation permet de rechercher « ressuscite »", async () => {
+  const { readCitation } = await import("../src/citation.ts");
+  const text =
+    "Jésus affirme : « Or, la volonté de celui qui m’a envoyé, c’est que je ne perde rien de tout ce qu’il m’a donné, mais que je le ressuscite au dernier jour. » (Jn 6.39)";
+  const selected = "ressuscite";
+  const c = readCitation({ text, selected, pos: text.indexOf(selected) });
+  const result = await lookup(c.book, c.chapter, c.verse, selected, c.verseText, c.offset);
+  assert.ok(result.matched);
+  assert.equal(result.entries[0].strong.slice(0, 5), "G0450");
+});
