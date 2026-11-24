@@ -8,6 +8,8 @@ Essayez « Parole » en Jean 1.14 ou cherchez `G3056` pour retrouver le lemme gr
 
 ## Installer sur chacun des Mac
 
+Pour une première installation, suivez le [tutoriel illustré pas à pas](docs/installation/README.md).
+
 1. Télécharger `bible-lexicon-source.zip` depuis la [dernière version GitHub](https://github.com/mattgiralt/bible-lexicon/releases/latest), décompresser l’archive dans un dossier permanent et ouvrir ce dossier dans le Terminal.
 2. Installer les dépendances avec `npm ci` sur un Mac disposant de Node.js 24 et de Raycast. Cette étape peut nécessiter Internet.
 3. Dans Raycast, lancer **Import Extension** et indiquer ce dossier. Raycast documente cette commande pour l’import de code source. Les commandes locales sont conservées après arrêt du mode de développement. [Import de code source](https://developers.raycast.com/basics/getting-started) · [Persistance de l’extension](https://developers.raycast.com/basics/create-your-first-extension)
