@@ -1,10 +1,14 @@
 # Bible Lexicon
 
-Recherche biblique grecque et hébraïque hors ligne dans Raycast. Les deux commandes sont **Lexique biblique** pour une sélection dans l’application active et **Recherche lexicale** pour interroger les dictionnaires directement.
+**Bible Lexicon est une extension Raycast pour macOS qui permet d’étudier le grec et l’hébreu bibliques hors ligne.** Sélectionnez un mot dans une citation depuis Byword, Ulysses ou un éditeur compatible, puis lancez **Lexique biblique**. L’extension affiche les formes originales associées au mot, leur lemme, leur numéro Strong et leur analyse morphologique. Elle signale les correspondances incertaines.
+
+Avec **Recherche lexicale**, partez directement d’un lemme grec ou hébreu, d’un mot français ou d’un numéro Strong. Consultez les notices STEP, les sens UBS disponibles en français et la concordance pour retrouver d’autres occurrences.
+
+Essayez « Parole » en Jean 1.14 ou cherchez `G3056` pour retrouver le lemme grec λόγος.
 
 ## Installer sur chacun des Mac
 
-1. Télécharger `bible-lexicon-source.zip` depuis la [dernière version GitHub](https://github.com/mattgiralt/bible-lexicon/releases/latest), puis décompresser l’archive dans un dossier permanent, puis ouvrir ce dossier dans le Terminal.
+1. Télécharger `bible-lexicon-source.zip` depuis la [dernière version GitHub](https://github.com/mattgiralt/bible-lexicon/releases/latest), décompresser l’archive dans un dossier permanent et ouvrir ce dossier dans le Terminal.
 2. Installer les dépendances avec `npm ci` sur un Mac disposant de Node.js 24 et de Raycast. Cette étape peut nécessiter Internet.
 3. Dans Raycast, lancer **Import Extension** et indiquer ce dossier. Raycast documente cette commande pour l’import de code source. Les commandes locales sont conservées après arrêt du mode de développement. [Import de code source](https://developers.raycast.com/basics/getting-started) · [Persistance de l’extension](https://developers.raycast.com/basics/create-your-first-extension)
 4. Ouvrir **Recherche lexicale** et essayer `H1254B`. Dans Ulysses ou un autre éditeur, sélectionner un mot entier dans une citation introduite par exemple par `Jn 1.14 (S21) :`, puis lancer **Lexique biblique**. Les autorisations macOS de Raycast pour l’accessibilité et, selon la configuration, pour System Events sont à régler sur chaque Mac si macOS le demande.
